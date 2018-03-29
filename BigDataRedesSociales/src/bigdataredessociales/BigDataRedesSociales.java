@@ -6,8 +6,9 @@
 package bigdataredessociales;
 
 import twitter4j.TwitterException;
-import com.bigdata.buscar.twit;
+import com.bigdata.buscar.searchTwit;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,18 +18,11 @@ public class BigDataRedesSociales{
     /*
     * Declaracion de los objetos para la busqueda 
     */
-    public static twit Twitter;
-    public static twit Twitter1;
-    public static twit Twitter2;
-    public static twit Twitter3;
-    public static twit Twitter4;
+    public static searchTwit Twitter;
     
-    public static void main(String[] args) throws TwitterException, IOException, InterruptedException {
-        Twitter = new twit();
-        Twitter1 = new twit();
-        Twitter2 = new twit();
-        Twitter3 = new twit();
-        Twitter4 = new twit();
+    public static void main(String[] args) throws TwitterException, IOException, InterruptedException, SQLException, ClassNotFoundException {
+        Twitter = new searchTwit();
+ 
         
         while(true){
             Twitter.buscar("Sergio Fajardo");

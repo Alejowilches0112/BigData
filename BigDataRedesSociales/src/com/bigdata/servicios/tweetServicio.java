@@ -5,7 +5,6 @@
  */
 package com.bigdata.servicios;
 
-import com.bigdata.dbconexion.conexionDB;
 import com.bigdata.entidades.tweet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,14 +23,14 @@ public class tweetServicio {
     public void guardar(Connection cnx,tweet tweeter)throws SQLException{
         try {
             PreparedStatement consulta;
-            String query="INSERT INTO"+this.tabla+" VALUES(?,?,?,?,)";
+            String query="INSERT INTO "+this.tabla+" VALUES(?,?,?,?)";
             if(tweeter.getId_tweet()!= null){
-                consulta = cnx.prepareStatement("INSERT INTO"+this.tabla+"VALUES (?,?,?,?,)");
+                consulta = cnx.prepareStatement(query);
                 consulta.setString(1, tweeter.getId_tweet());
                 consulta.setString(2, tweeter.getUser());
                 consulta.setString(3, tweeter.getTexto());
                 consulta.setString(4, tweeter.getLocalizacion());
-                //consulta.executeUpdate();
+                consulta.executeUpdate();
             } else {
                 System.err.println("Es necesario el ID");
             }
@@ -70,21 +69,5 @@ public class tweetServicio {
         } catch (Exception e) {
         }
         return Twit;
-    }
-    
-    public static void main(String args[]) throws SQLException, ClassNotFoundException{
-        Connection con=null;
-        conexionDB cnx= new conexionDB(con);
-        tweetServicio ts= new tweetServicio();
-        tweet T;
-        tweet T1;
-        //T = new tweet("979260958572007424", "RafaelsvriveraS", "RT @JoseCuelloB: 🔴⚫️🔵 \"El que vote por Gustavo Petro está loco. Si quieren pasar hambre, entonces, que se vayan para Venezuela. Dios nos am…", null);
-        List<tweet> eje;
-        eje = ts.listarAll(cnx.getConeccion());
-        T=ts.listar(cnx.getConeccion(), "2147483647");
-        T1=new tweet("979153310862192642 ","rosalindameza3 ","RT @cauca_humana: \"El día que un campesino en Colombia diga: soy un granjero y mi hija estudia medicina en la universidad, ese día llegará…",null);
-        //ts.guardar(cnx.getConeccion(), T1);
-        System.out.println(eje.toString()+" : "+T.toString());
-        
     }
 }
