@@ -51,6 +51,7 @@ public class twit extends Thread {
                         
                         archivo = new FileWriter("/home/familia/Documentos/BigData/BigDataRedesSociales/"
                                 + "src/"+word+".txt");
+                        //archivo = new FileWriter("C:/Users/Alejo/Documents/BIG DATA/BigDataRedesSociales/src/twitter.txt");
 			pw = new PrintWriter(archivo);
 			do {
 				resultado = twit.search(buscar);
