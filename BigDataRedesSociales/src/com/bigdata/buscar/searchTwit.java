@@ -50,7 +50,7 @@ public class searchTwit extends Thread {
 			QueryResult resultado;
                         
                         //archivo = new FileWriter("/home/familia/Documentos/BigData/BigDataRedesSociales/"
-                                //+ "src/"+word+".txt");
+                              //  + "src/"+word+".txt");
                         archivo = new FileWriter("C:/Users/Alejo/Documents/BIG DATA/BigDataRedesSociales/src/twitter.txt");
 			pw = new PrintWriter(archivo);
 			do {
@@ -75,6 +75,7 @@ public class searchTwit extends Thread {
 		} catch (TwitterException e) {
 			System.err.println("Fallo busqueda de tweets : " + e.getMessage());
 			Thread.sleep(940 * 1000);
+                     
 		}
 		catch (NullPointerException e) {
 			System.err.println("Error desconocido"+e.getMessage());
