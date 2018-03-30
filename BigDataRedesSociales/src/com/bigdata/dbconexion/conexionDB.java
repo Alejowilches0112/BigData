@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bigdata.dbconexion;
+package com.bigdata.dbconeccion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,8 +17,8 @@ import java.sql.Statement;
 public class conexionDB {
     private Connection cnx;
     Statement stm;
-    public conexionDB(Connection cnx){
-        this.cnx=cnx;
+    public conexionDB(){
+        
     }
     public Connection getConeccion() throws SQLException, ClassNotFoundException{
         
@@ -31,7 +31,7 @@ public class conexionDB {
          try {
             Class.forName("com.mysql.jdbc.Driver");
              cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?user=root&password");
-             System.out.println("Coneccion exitosa");
+             //System.out.println("Coneccion exitosa");
          } catch (SQLException ex) {
              System.err.println("Fallo coneccion");
             throw new SQLException(ex);
@@ -48,14 +48,4 @@ public class conexionDB {
          cnx.close();
       }
    }
-   
-   /*public static void main (String args[]) throws SQLException, ClassNotFoundException{
-      conexionDB cnx= new conexionDB();
-      Connection conec=cnx.getConeccion();
-      if(conec!=null){
-          System.out.println("Conexion exitosa");
-      }else{
-          System.err.println("Conexion fallida");
-      }
-   }*/
 }

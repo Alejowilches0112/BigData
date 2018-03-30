@@ -46,10 +46,10 @@ public class tweetServicio {
             consulta.setString(1, id_twit);
             ResultSet resultado=consulta.executeQuery();
             while(resultado.next()){
-                Tweet =new tweet(id_twit,resultado.getString("user_twit"),resultado.getString("texto"), resultado.getString("localizacion"));
+                Tweet = new tweet(id_twit,resultado.getString("user_twit"),resultado.getString("texto"), resultado.getString("localizacion"));
             }
         } catch (SQLException e) {
-            System.out.println("Error con la base de datos"+e.getMessage());
+            System.out.println("Error con la base de datos " + e.getMessage());
         }
         return Tweet;
     }
