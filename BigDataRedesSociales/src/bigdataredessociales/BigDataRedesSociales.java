@@ -25,7 +25,7 @@ public class BigDataRedesSociales{
  
         
         while(true){
-            Twitter.buscar("Sergio Fajardo");
+            Twitter.buscar("de la Calle");
         }
           
     }

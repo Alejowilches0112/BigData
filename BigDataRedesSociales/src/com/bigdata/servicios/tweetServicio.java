@@ -40,7 +40,7 @@ public class tweetServicio {
         }
     }
     public tweet listar(Connection cnx,String id_twit)throws SQLException{
-        tweet Tweet = null;
+        tweet Tweet = new tweet("","","","");
         try {
             PreparedStatement consulta=cnx.prepareStatement("SELECT user_twit,texto,localizacion FROM "+this.tabla+" WHERE id_twit = ?");
             consulta.setString(1, id_twit);

@@ -40,17 +40,17 @@ public class searchTwit extends Thread {
         
     public ConfigurationBuilder config() throws TwitterException, IOException {
         ConfigurationBuilder ct = new ConfigurationBuilder();
-        ct.setDebugEnabled(true).setOAuthConsumerKey("UTO1qpbHGuT3JTqWd5KFOjk61")
-                .setOAuthConsumerSecret("TH0fXIhkeA55KiBtZzMihTxbJaIA0XrL8eyBsmTHreN8Gy0CaS")
-                .setOAuthAccessToken("162496007-CUuJHs97MjjZ5qTIi0lC30uGZWTXOnKovzjJ1JZV")
-                .setOAuthAccessTokenSecret("JmrqRPaIH593T41JeuUz9ETg6HCo8mCnXhXn7ThqrTNWa");
+        ct.setDebugEnabled(true).setOAuthConsumerKey("")
+                .setOAuthConsumerSecret("")
+                .setOAuthAccessToken("")
+                .setOAuthAccessTokenSecret("");
         return ct;
     }
 
     public void buscar(String word) throws TwitterException, IOException, InterruptedException, ClassNotFoundException, SQLException {
         twit = new TwitterFactory(config().build()).getInstance();
-        FileWriter archivo = null;
-        PrintWriter pw = null;
+        //FileWriter archivo = null;
+        //PrintWriter pw = null;
         ctb = new controladorDB();         
         
         try {
@@ -58,12 +58,14 @@ public class searchTwit extends Thread {
             buscar.count(100);
             QueryResult resultado;
             
-            archivo = new FileWriter("C:/Users/Alejo/Documents/BIG DATA/BigDataRedesSociales/src/twitter.txt");
-            pw = new PrintWriter(archivo);
+            //archivo = new FileWriter("C:/Users/Alejo/Documents/BIG DATA/BigDataRedesSociales/src/twitter.txt");
+            //archivo = new FileWriter("/home/familia/Documentos/BigData/BigDataRedesSociales/"
+                                //+ "archivos/"+word+".txt");
+
             do {
                 resultado = twit.search(buscar);
                 busqueda = resultado.getTweets();
-                                
+                //pw = new PrintWriter(archivo);               
                 for (Status tweet : busqueda) {
                     id=tweet.getId();
                     usuario = (tweet.getUser().getScreenName());
@@ -72,8 +74,8 @@ public class searchTwit extends Thread {
                     
                     ctb.crearTweet(id,usuario,texto,ubicacion);
                     
-                    System.out.println(n+" "+tweet.getId() + " : "+ usuario +" : " + tweet.getText() + " : " + ubicacion + "\n");
-                    n++;
+                    //System.out.println(n+" "+tweet.getId() + " : "+ usuario +" : " + tweet.getText() + " : " + ubicacion + "\n");
+                    //n++;
                 }
             } while ((buscar = resultado.nextQuery()) != null);
             dormir();

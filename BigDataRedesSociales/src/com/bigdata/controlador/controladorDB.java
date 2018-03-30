@@ -37,11 +37,17 @@ public class controladorDB {
                 cnx=new conexionDB();
                 ct=cnx.getConeccion();
                 ts=new tweetServicio();
+                tweet T1;
+                T1=ts.listar(ct, T.getId_tweet());
+                if(!T1.getId_tweet().equals(T.getId_tweet())){
+                    ts.guardar(ct, T);
+                    System.out.println("Tweet guardado");
+                    cnx.cerrar();
+                }else{
+                    System.err.println("El Tweet ya existe");
+                    cnx.cerrar();
+                }
                 
-                System.out.println("1 : ");
-                ts.guardar(ct, T);
-                System.out.println("Tweet guardado");
-                cnx.cerrar();
                 
         }
 }
