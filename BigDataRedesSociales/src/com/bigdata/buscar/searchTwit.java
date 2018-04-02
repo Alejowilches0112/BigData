@@ -74,7 +74,7 @@ public class searchTwit extends Thread {
                     
                     ctb.crearTweet(id,usuario,texto,ubicacion);
                     
-                    System.out.println(n+" "+tweet.getId() + " : "+ tweet.getCreatedAt()+" : " + tweet.getText() + " : " + ubicacion + "\n");
+                    System.out.println(n+tweet.getCreatedAt().toString());
                     n++;
                 }
             } while ((buscar = resultado.nextQuery()) != null);
