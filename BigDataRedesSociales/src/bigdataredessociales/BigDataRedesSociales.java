@@ -25,16 +25,8 @@ public class BigDataRedesSociales{
  
         
         while(true){
-            Twitter.buscar("de la Calle");
+            Twitter.buscar("German Vargas Lleras");
         }
           
-    }
-    
-    private static void dormir(int seg) {
-        try {
-            Thread.sleep(seg * 1000);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
     }
 }

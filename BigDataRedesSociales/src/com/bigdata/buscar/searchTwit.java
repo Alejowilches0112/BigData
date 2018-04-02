@@ -40,10 +40,10 @@ public class searchTwit extends Thread {
         
     public ConfigurationBuilder config() throws TwitterException, IOException {
         ConfigurationBuilder ct = new ConfigurationBuilder();
-        ct.setDebugEnabled(true).setOAuthConsumerKey("")
-                .setOAuthConsumerSecret("")
-                .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("");
+        ct.setDebugEnabled(true).setOAuthConsumerKey("UTO1qpbHGuT3JTqWd5KFOjk61")
+                .setOAuthConsumerSecret("TH0fXIhkeA55KiBtZzMihTxbJaIA0XrL8eyBsmTHreN8Gy0CaS")
+                .setOAuthAccessToken("162496007-CUuJHs97MjjZ5qTIi0lC30uGZWTXOnKovzjJ1JZV")
+                .setOAuthAccessTokenSecret("JmrqRPaIH593T41JeuUz9ETg6HCo8mCnXhXn7ThqrTNWa");
         return ct;
     }
 
@@ -74,8 +74,8 @@ public class searchTwit extends Thread {
                     
                     ctb.crearTweet(id,usuario,texto,ubicacion);
                     
-                    //System.out.println(n+" "+tweet.getId() + " : "+ usuario +" : " + tweet.getText() + " : " + ubicacion + "\n");
-                    //n++;
+                    System.out.println(n+" "+tweet.getId() + " : "+ tweet.getCreatedAt()+" : " + tweet.getText() + " : " + ubicacion + "\n");
+                    n++;
                 }
             } while ((buscar = resultado.nextQuery()) != null);
             dormir();

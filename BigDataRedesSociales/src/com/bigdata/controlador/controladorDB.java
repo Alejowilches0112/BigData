@@ -8,7 +8,7 @@ package com.bigdata.controlador;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.bigdata.dbconeccion.conexionDB;
+import com.bigdata.dbconexion.conexionDB;
 import com.bigdata.entidades.tweet;
 import com.bigdata.servicios.tweetServicio;
 import java.util.List;

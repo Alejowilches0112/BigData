@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alejo/Documents/BIG%20DATA/BigData/BigDataRedesSociales/src/com/bigdata/buscar/searchTwit.java</file>
-            <file>file:/C:/Users/Alejo/Documents/BIG%20DATA/BigData/BigDataRedesSociales/src/com/bigdata/dbconexion/conexionDB.java</file>
-            <file>file:/C:/Users/Alejo/Documents/BIG%20DATA/BigData/BigDataRedesSociales/src/bigdataredessociales/BigDataRedesSociales.java</file>
-            <file>file:/C:/Users/Alejo/Documents/BIG%20DATA/BigData/BigDataRedesSociales/src/com/bigdata/entidades/tweet.java</file>
-            <file>file:/C:/Users/Alejo/Documents/BIG%20DATA/BigData/BigDataRedesSociales/src/com/bigdata/servicios/tweetServicio.java</file>
+            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/servicios/tweetServicio.java</file>
+            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/buscar/searchTwit.java</file>
+            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/controlador/controladorDB.java</file>
+            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/dbconexion/conexionDB.java</file>
+            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/bigdataredessociales/BigDataRedesSociales.java</file>
         </group>
     </open-files>
 </project-private>
