@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/servicios/tweetServicio.java</file>
-            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/buscar/searchTwit.java</file>
-            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/controlador/controladorDB.java</file>
-            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/com/bigdata/dbconexion/conexionDB.java</file>
-            <file>file:/home/familia/Documentos/BigData/BigDataRedesSociales/src/bigdataredessociales/BigDataRedesSociales.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

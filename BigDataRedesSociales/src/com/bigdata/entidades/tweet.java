@@ -5,6 +5,7 @@
  */
 package com.bigdata.entidades;
 
+
 /**
  *
  * @author Alejo
@@ -14,17 +15,23 @@ public class tweet {
     private String user;
     private String texto;
     private String Localizacion;
+    private String fecha;
+    private final String palabra;
     public tweet(){
         this.id_tweet=null;
         this.user=null;
         this.texto=null;
         this.Localizacion=null;
+        this.fecha=null;
+        this.palabra=null;
     }
-    public tweet(String id, String user, String texto, String georef){
+    public tweet(String id, String user, String texto, String georef, String fecha,String p){
         this.id_tweet=id;
         this.user=user;
         this.texto=texto;
         this.Localizacion=georef;
+        this.fecha=fecha;
+        this.palabra=p;
     }
 
     public String getId_tweet() {
@@ -54,8 +61,21 @@ public class tweet {
     public void setLocalizacion(String Localizacion) {
         this.Localizacion = Localizacion;
     }
+    
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getPalabra() {
+        return palabra;
+    }
+    
  @Override
     public String toString(){
-    return "tweet{"+"id_tweet="+id_tweet+", user="+user+", texto="+texto+",Localizacion="+Localizacion+'}';
+    return "tweet{"+id_tweet+" "+user+" "+texto+" "+Localizacion+" "+fecha+" "+palabra+'}';
     } 
 }

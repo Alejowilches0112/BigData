@@ -23,30 +23,32 @@ public class tweetServicio {
     public void guardar(Connection cnx,tweet tweeter)throws SQLException{
         try {
             PreparedStatement consulta;
-            String query="INSERT INTO "+this.tabla+" VALUES(?,?,?,?)";
+            String query="INSERT INTO "+this.tabla+" VALUES(?,?,?,?,?,?)";
             if(tweeter.getId_tweet()!= null){
                 consulta = cnx.prepareStatement(query);
                 consulta.setString(1, tweeter.getId_tweet());
                 consulta.setString(2, tweeter.getUser());
                 consulta.setString(3, tweeter.getTexto());
                 consulta.setString(4, tweeter.getLocalizacion());
+                consulta.setString(5, tweeter.getFecha());
+                consulta.setString(6, tweeter.getPalabra());
                 consulta.executeUpdate();
             } else {
                 System.err.println("Es necesario el ID");
             }
         } catch (SQLException e) {
-            //System.err.println("Error en SQL: "+e.getMessage());
-            throw new SQLException(e);
+            System.err.println("Error en SQL: "+e.getMessage());
+            //throw new SQLException(e);
         }
     }
     public tweet listar(Connection cnx,String id_twit)throws SQLException{
-        tweet Tweet = new tweet("","","","");
+        tweet Tweet = new tweet("","","","","","");
         try {
-            PreparedStatement consulta=cnx.prepareStatement("SELECT user_twit,texto,localizacion FROM "+this.tabla+" WHERE id_twit = ?");
+            PreparedStatement consulta=cnx.prepareStatement("SELECT user_twit,texto,localizacion,fecha,clave FROM "+this.tabla+" WHERE id_twit = ?");
             consulta.setString(1, id_twit);
             ResultSet resultado=consulta.executeQuery();
             while(resultado.next()){
-                Tweet = new tweet(id_twit,resultado.getString("user_twit"),resultado.getString("texto"), resultado.getString("localizacion"));
+                Tweet = new tweet(id_twit,resultado.getString("user_twit"),resultado.getString("texto"), resultado.getString("localizacion"),resultado.getString("fecha"),resultado.getString("clave"));
             }
         } catch (SQLException e) {
             System.out.println("Error con la base de datos " + e.getMessage());
@@ -58,10 +60,10 @@ public class tweetServicio {
         List<tweet> Twit= new ArrayList<>();
         try {
             try{
-         PreparedStatement consulta = cnx.prepareStatement("SELECT id_twit, user_twit, texto , localizacion FROM " + this.tabla + " ORDER BY id_twit");
+         PreparedStatement consulta = cnx.prepareStatement("SELECT id_twit, user_twit, texto , localizacion , fecha , clave FROM " + this.tabla + " ORDER BY id_twit");
          ResultSet resultado = consulta.executeQuery();
          while(resultado.next()){
-            Twit.add(new tweet(resultado.getString("id_twit"), resultado.getString("user_twit"), resultado.getString("texto"), resultado.getString("localizacion")));
+            Twit.add(new tweet(resultado.getString("id_twit"), resultado.getString("user_twit"), resultado.getString("texto"), resultado.getString("localizacion"), resultado.getString("fecha"), resultado.getString("clave")));
          }
       }catch(SQLException ex){
          throw new SQLException(ex);

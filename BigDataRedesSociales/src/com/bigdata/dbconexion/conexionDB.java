@@ -30,8 +30,9 @@ public class conexionDB {
    private Connection obtener() throws SQLException, ClassNotFoundException {
          try {
             Class.forName("com.mysql.jdbc.Driver");
-             cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?user=root&password=root");
-             //System.out.println("Coneccion exitosa");
+             //cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?user=root&password=root");
+             cnx=DriverManager.getConnection("jdbc:mysql://192.168.0.7:3306/bigdata?user=alejo&password"); 
+            //System.out.println("Coneccion exitosa");
          } catch (SQLException ex) {
              System.err.println("Fallo coneccion");
             throw new SQLException(ex);

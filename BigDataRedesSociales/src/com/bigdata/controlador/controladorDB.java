@@ -27,10 +27,11 @@ public class controladorDB {
 //		cnx = new conexionDB();
 //	}
 	
-	public void crearTweet(long id, String user, String text, GeoLocation geo) throws ClassNotFoundException, SQLException {
+	public void crearTweet(long id, String user, String text, GeoLocation geo, String date, String p) throws ClassNotFoundException, SQLException {
 		String id_t=id+"";
 		String geoL=geo+"";
-		T = new tweet(id_t, user, text, geoL);
+                text=text+"";
+		T = new tweet(id_t, user, text, geoL, date,p);
 		save(T);
 	}
 	private void save (tweet T) throws ClassNotFoundException, SQLException {
@@ -47,7 +48,5 @@ public class controladorDB {
                     System.err.println("El Tweet ya existe");
                     cnx.cerrar();
                 }
-                
-                
         }
 }

@@ -10,6 +10,7 @@ import com.bigdata.controlador.controladorDB;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.sql.SQLException;
 import java.util.List;
 import twitter4j.*;
@@ -29,6 +30,7 @@ public class searchTwit extends Thread {
     private String texto;
     private GeoLocation ubicacion;
     private long id;
+    private String date;
     
     //variables locales
     private long n=0;
@@ -71,21 +73,30 @@ public class searchTwit extends Thread {
                     usuario = (tweet.getUser().getScreenName());
                     texto = tweet.getText();
                     ubicacion = tweet.getGeoLocation();
-                    
-                    ctb.crearTweet(id,usuario,texto,ubicacion);
-                    
-                    System.out.println(n+tweet.getCreatedAt().toString());
+                    date = tweet.getCreatedAt().toString();
+                   System.out.println(n+" "+id+" "+tweet.getCreatedAt().toString());
+                    if(texto.contains("RT")){
+                        System.err.println("Es un RT, OMITIDO");
+                    }else{
+                        ctb.crearTweet(id,usuario,texto,ubicacion,date,word);
+                    }
+                  
                     n++;
                 }
             } while ((buscar = resultado.nextQuery()) != null);
+            long a=System.currentTimeMillis();
             dormir();
+            long b=(System.currentTimeMillis()-a);
             //searchTwit Twitter = new searchTwit();
             //Twitter.buscar(word);
         } catch (TwitterException e) {
-            System.err.println("Fallo busqueda de tweets" + e.getMessage());
+            long a=System.currentTimeMillis();
+            System.err.println("Fallo busqueda de tweets" + e.getMessage()+" "+a+'\n');
             Thread.sleep(940 * 1000);
-            searchTwit Twitter = new searchTwit();
-            Twitter.buscar(word); 
+            long b=(System.currentTimeMillis()-a);
+            System.err.println("tiempo: "+b/1000);
+            //searchTwit Twitter = new searchTwit();
+            //Twitter.buscar(word); 
         }
         catch (NullPointerException e) {
             //System.err.println("Error desconocido : " + e.getMessage());
@@ -95,7 +106,7 @@ public class searchTwit extends Thread {
 
     private void dormir() {
         try {
-            Thread.sleep(3600 * 1000);
+            Thread.sleep(60 * 1000);
         } catch (Exception e) {
                     System.err.println(e.getMessage());
         }

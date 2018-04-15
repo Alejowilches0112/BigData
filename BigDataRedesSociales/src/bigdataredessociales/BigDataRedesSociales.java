@@ -23,10 +23,10 @@ public class BigDataRedesSociales{
     public static void main(String[] args) throws TwitterException, IOException, InterruptedException, SQLException, ClassNotFoundException {
         Twitter = new searchTwit();
  
-        //@sergio_fajardo, @petrogustavo, @IvanDuque, @german_vargasll, @DeLaCalleHum
+        //#MejorVargasLleras, @sergio_fajardo, @petrogustavo, @IvanDuque, @german_vargasll, @DeLaCalleHum
+        //Gustavo Petro, Sergio Fajardo, Humberto de la Calle, German Vargas Lleras, Ivan Duque
         while(true){
             Twitter.buscar("@sergio_fajardo");
         }
-          
     }
 }
