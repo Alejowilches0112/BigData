@@ -23,7 +23,7 @@ public class tweetServicio {
     public void guardar(Connection cnx,tweet tweeter)throws SQLException{
         try {
             PreparedStatement consulta;
-            String query="INSERT INTO "+this.tabla+" VALUES(?,?,?,?,?,?)";
+            String query="INSERT INTO "+this.tabla+" V.ALUES(?,?,?,?,?,?)";
             if(tweeter.getId_tweet()!= null){
                 consulta = cnx.prepareStatement(query);
                 consulta.setString(1, tweeter.getId_tweet());

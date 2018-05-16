@@ -74,7 +74,6 @@ public class searchTwit extends Thread {
                     texto = tweet.getText();
                     ubicacion = tweet.getGeoLocation();
                     date = tweet.getCreatedAt().toString();
-                    System.out.println(n+" "+texto+" "+tweet.getCreatedAt().toString());
                     ctb.crearTweet(id,usuario,texto,ubicacion,date,word);
                     n++;
                 }
@@ -85,11 +84,11 @@ public class searchTwit extends Thread {
             //searchTwit Twitter = new searchTwit();
             //Twitter.buscar(word);
         } catch (TwitterException e) {
-            long a=System.currentTimeMillis();
-            System.err.println("Fallo busqueda de tweets: "+a+'\n');
+            //long a=System.currentTimeMillis();
+            System.err.println("Fallo busqueda de tweets: "+'\n');
             Thread.sleep(940 * 1000);
-            long b=(System.currentTimeMillis()-a);
-            System.err.println("tiempo: "+b/1000);
+            //long b=(System.currentTimeMillis()-a);
+            //System.err.println("tiempo: "+b/1000);
             //searchTwit Twitter = new searchTwit();
             //Twitter.buscar(word); 
         }

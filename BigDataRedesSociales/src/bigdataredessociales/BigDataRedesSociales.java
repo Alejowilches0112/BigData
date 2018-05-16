@@ -26,7 +26,8 @@ public class BigDataRedesSociales{
         //#MejorVargasLleras, @sergio_fajardo, @petrogustavo, @IvanDuque, @german_vargasll, @DeLaCalleHum
         //Gustavo Petro, Sergio Fajardo, Humberto de la Calle, German Vargas Lleras, Ivan Duque
         while(true){
-            Twitter.buscar("@DeLaCalleHum");
+            Twitter.buscar("@sergio_fajardo");
         }
     }
 }
+///Wed Apr 18 19:51:18 COT 2018.
