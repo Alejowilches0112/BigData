@@ -5,6 +5,9 @@
  */
 package com.bigdata.entidades;
 
+import java.sql.Date;
+import twitter4j.GeoLocation;
+
 
 /**
  *
@@ -15,8 +18,9 @@ public class tweet {
     private String user;
     private String texto;
     private String Localizacion;
-    private String fecha;
+    private Date fecha;
     private final String palabra;
+    
     public tweet(){
         this.id_tweet=null;
         this.user=null;
@@ -25,15 +29,22 @@ public class tweet {
         this.fecha=null;
         this.palabra=null;
     }
-    public tweet(String id, String user, String texto, String georef, String fecha,String p){
+    public tweet(String id, String user, String texto, GeoLocation georef, int d, int m, int y, String p){
         this.id_tweet=id;
         this.user=user;
         this.texto=texto;
-        this.Localizacion=georef;
-        this.fecha=fecha;
+        this.Localizacion=georef+"";
+        this.fecha=new Date(y,m,d);
         this.palabra=p;
     }
-
+    public tweet(String id, String user, String texto, String georef, Date f, String p){
+        this.id_tweet=id;
+        this.user=user;
+        this.texto=texto;
+        this.Localizacion=georef+"";
+        this.fecha=f;
+        this.palabra=p;
+    }
     public String getId_tweet() {
         return id_tweet;
     }
@@ -62,11 +73,11 @@ public class tweet {
         this.Localizacion = Localizacion;
     }
     
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

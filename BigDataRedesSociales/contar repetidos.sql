@@ -1,0 +1,1 @@
+select idtwitter, count(*) Total from twitter group by idtwitter having count(*) > 1

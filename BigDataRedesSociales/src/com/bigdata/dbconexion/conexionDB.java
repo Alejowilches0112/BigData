@@ -36,6 +36,7 @@ public class conexionDB {
          } catch (SQLException ex) {
             System.err.println("Fallo coneccion");
             StackTraceElement[] st = Thread.currentThread().getStackTrace();
+            //cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?user=root&password=root");
             //System.err.println("create connection called from " + st[2] );
             
          } catch (ClassNotFoundException ex) {

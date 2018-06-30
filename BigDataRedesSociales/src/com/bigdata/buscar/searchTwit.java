@@ -6,13 +6,12 @@
 package com.bigdata.buscar;
 
 
-import com.bigdata.controlador.controladorDB;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
+
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -30,22 +29,20 @@ public class searchTwit extends Thread {
     private String texto;
     private GeoLocation ubicacion;
     private long id;
-    private String date;
+    private Date date;
     
     //variables locales
     private long n=0;
     private String word;
-    //entidad y conexion a DB
-    private controladorDB ctb;
-
+    
            
         
     public ConfigurationBuilder config() throws TwitterException, IOException {
         ConfigurationBuilder ct = new ConfigurationBuilder();
-        ct.setDebugEnabled(true).setOAuthConsumerKey("UTO1qpbHGuT3JTqWd5KFOjk61")
-                .setOAuthConsumerSecret("TH0fXIhkeA55KiBtZzMihTxbJaIA0XrL8eyBsmTHreN8Gy0CaS")
-                .setOAuthAccessToken("162496007-CUuJHs97MjjZ5qTIi0lC30uGZWTXOnKovzjJ1JZV")
-                .setOAuthAccessTokenSecret("JmrqRPaIH593T41JeuUz9ETg6HCo8mCnXhXn7ThqrTNWa");
+        ct.setDebugEnabled(true).setOAuthConsumerKey("")
+                .setOAuthConsumerSecret("")
+                .setOAuthAccessToken("")
+                .setOAuthAccessTokenSecret("");
         return ct;
     }
 
@@ -53,10 +50,9 @@ public class searchTwit extends Thread {
         twit = new TwitterFactory(config().build()).getInstance();
         //FileWriter archivo = null;
         //PrintWriter pw = null;
-        ctb = new controladorDB();         
         
         try {
-            Query buscar = new Query(word);
+            Query buscar = new Query(word+" +exclude:retweets");
             buscar.count(100);
             QueryResult resultado;
             
@@ -73,8 +69,8 @@ public class searchTwit extends Thread {
                     usuario = (tweet.getUser().getScreenName());
                     texto = tweet.getText();
                     ubicacion = tweet.getGeoLocation();
-                    date = tweet.getCreatedAt().toString();
-                    ctb.crearTweet(id,usuario,texto,ubicacion,date,word);
+                    date = (tweet.getCreatedAt());
+                    
                     n++;
                 }
             } while ((buscar = resultado.nextQuery()) != null);
